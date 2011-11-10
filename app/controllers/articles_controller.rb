@@ -20,8 +20,8 @@ class ArticlesController < ApplicationController
     
    respond_to do |format|
     if @article.save
-          format.html { redirect_to (@article, :notice=>"Article added successfuly" )}
-
+          #~ format.html { redirect_to (@article, :notice=>"Article added successfuly" )}
+          format.html { redirect_to (@article )}
           format.xml  { head :ok }
         else
           format.html { render :action => "new" }
@@ -39,7 +39,9 @@ class ArticlesController < ApplicationController
     @article =Article.find(params[:id])
      respond_to do |format|
       if @article.update_attributes(params[:article])
-        format.html { redirect_to(@article, :notice=>"Updated successfuly" ) }
+        #~ format.html { redirect_to(@article, :notice=>"Updated successfuly" ) }
+        format.html { redirect_to(@article) }
+        
         format.xml  { head :ok }
       else
         format.html { render :action => "edit"}
@@ -52,7 +54,8 @@ class ArticlesController < ApplicationController
     @article =Article.find(params[:id])
     @article.destroy
     respond_to do |format|
-        format.html { redirect_to(@article, :notice=>"Deleted successfuly" ) }
+        #~ format.html { redirect_to(@article, :notice=>"Deleted successfuly" ) }
+        format.html { redirect_to(@article) }
     end
   end
 
