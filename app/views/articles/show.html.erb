@@ -1,0 +1,8 @@
+<h1>show Article</h1>
+<div class="myarticles">
+Title:<%= @article.title%><br/>
+Content:<%= @article.content%><br/>
+<%= link_to "Edit", "#{@article.id}/edit"%> | <%= link_to "Back", "/articles/"%>
+
+
+</div>

@@ -1,0 +1,56 @@
+<h1>Edit Profile</h1>
+<%= form_for(@profile, :html => { :multipart => true }) do |f| %>
+ <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% @profile.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  	
+	<div><%= f.label :name %><br />
+  <%= f.text_field :name %>
+	</div>
+	
+	<div><%= f.label :dob %><br />
+  <%= f.text_field :dob %>
+	</div>
+	
+	<div>
+ <%= f.radio_button :gender, true %> <%= f.label :gender, "Male" %><br/>
+<%= f.radio_button :gender, false %> <%= f.label :gender, "Female" %>
+</div>
+
+	<div><%= f.label :mobile %><br />
+  <%= f.text_field :mobile %>
+	</div>
+
+
+	
+<div><%= f.label :city %><br />
+	<%= f.select :city, options_for_select(["Chennai", "Delhi", "Bangalore", "Mumbai"]) %>
+	</div>
+	
+	<div><%= f.label :state %><br />
+  <%= f.text_field :state %>
+	</div>
+	
+ <div><%= f.label :country %><br />
+  <%= f.text_field :country %>
+	</div>
+	<div><%= f.label :zip %><br />
+  <%= f.text_field :zip %>
+	</div>
+	<div><%= f.label :Photo %><br />
+	 <%= f.file_field :photo %>
+	 </div>
+	 <div>
+	 <%= image_tag @profile.photo.url(:small)%>
+	 </div>
+
+  <div><%= f.submit "Save" %></div>
+<% end %>

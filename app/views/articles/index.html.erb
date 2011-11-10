@@ -1,0 +1,18 @@
+<h1>All Articles</h1>
+<div class="myarticles">
+<%= link_to "Add New", "/articles/new", :style=>"float:left;"%><br/>
+<ul>
+		<li><b>Username</b><li>
+		<li><b>Title</b><li>
+		<li><b>Action</b><li>
+		<% for article in @articles %>
+		<li><%= current_user.profile.name%><li>
+		<li><%= article.title %><li>
+    <li>
+		<%= link_to "Show", "#{article.id}"%> | <%= link_to "Edit", "#{article.id}/edit"%> | <%= link_to "Delete", "#{article.id}", :method=>:delete%>
+		<li>
+
+<% end %>
+</ul>
+
+</div>

@@ -1,0 +1,50 @@
+<h1>Edit Profile</h1>
+<%= form_for(@profile, :url => "/profile/#{current_user.id}", :method=>:put,:html => { :multipart => true }) do |f| %>
+
+  	
+	<div><%= f.label :name %><br />
+  <%= f.text_field :name %>
+	</div>
+	
+	<div><%= f.label :dob %><br />
+  <%= f.text_field :dob %>
+	</div>
+	
+	<div>
+ <%= f.radio_button :gender, true %> <%= f.label :gender, "Male" %><br/>
+<%= f.radio_button :gender, false %> <%= f.label :gender, "Female" %>
+</div>
+
+	<div><%= f.label :mobile %><br />
+  <%= f.text_field :mobile %>
+	</div>
+
+
+	
+<div><%= f.label :city %><br />
+	<%= f.select :city, options_for_select(["Chennai", "Delhi", "Bangalore", "Mumbai"]) %>
+	</div>
+	
+	<div><%= f.label :state %><br />
+  <%= f.text_field :state %>
+	</div>
+	
+ <div><%= f.label :country %><br />
+  <%= f.text_field :country %>
+	</div>
+	<div><%= f.label :zip %><br />
+  <%= f.text_field :zip %>
+	</div>
+	<div><%= f.label :Photo %><br />
+	 <%= f.file_field :photo %>
+	 </div>
+	 <div>
+		<% if  current_user.profile.photo_file_name==nil %>
+				<%= image_tag "default.png", :width=>"100", :height=>"100" %>
+		<% else %>		
+				<%= image_tag @profile.photo.url(:thumb)%>
+		<% end %>
+	 </div>
+  <div><%= f.submit "Update" %>
+	<%= button_to "Cancel", :action=>"show", :controller=>"profile" %></div>
+<% end %>

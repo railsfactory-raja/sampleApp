@@ -1,0 +1,165 @@
+
+* {
+
+padding:0;
+margin:0;
+
+}
+
+body {
+
+  background:#f8f8f8;
+  font-family:"Tahoma";
+
+}
+
+ul li, ol li {
+
+  list-style:none;
+	
+}
+
+a {
+  
+  color:#3399FF;
+
+}
+img {
+
+    border:none;
+}
+/*.notice {
+    width:700px;
+    height:60px;
+    border:1px solid #e4e4e4;
+    background:#ccffcc;
+    color:#006600;
+    margin:5px auto;
+} */
+.notice p {
+     width:700px;
+    background:#ccffcc;
+    color:#006600;
+    margin:5px auto;
+} 
+.alert p {
+     width:700px;
+    background:#FFCCCC;
+    color:#FF0000;
+    margin:5px auto;
+} 
+#error_explanation {
+    width:90%;
+    height:auto;
+    margin:3px auto;
+    border:1px solid #ff0000;
+}
+#error_explanation h2{
+    color:#ff0000;
+    font-size:16px;
+}
+#error_explanation ul li{
+  list-style:square;
+  clear:both;
+  text-align:left;
+  margin-left:40px;
+}
+
+#header {
+ 
+  background:#9400D3;
+  height:100px;
+  width:100%;
+  clear:both;
+	overflow:hidden;
+	z-index:999;
+	 -moz-box-shadow: 0px 5px 0px #000;
+  -webkit-box-shadow: 0px 5px 0px #000;
+  box-shadow: 0px 5px 0px #000;
+
+}
+#header h1 {
+
+ text-align:center;
+margin-top:10px;
+ font-size:26px;
+ color:#fff;
+}
+
+#mainwarpper {
+ 
+  background:#fff;
+  height:auto;
+  width:1000px;
+  margin:-10px auto 0 auto;	
+  overflow:hidden;	
+  -moz-box-shadow: 5px 5px 5px #000;
+  -webkit-box-shadow: 5px 5px 5px #000;
+  box-shadow: 5px 5px 5px #000;
+
+}
+
+
+#content {
+ 
+  background:#fff;
+  height:auto;
+  float:left;
+  padding:20px 0;
+  width:100%;
+	text-align:center;
+
+}
+#content form{
+		
+		border:2px solid #E4E4E4;
+		width:500px;
+        padding:10px 0px;
+		margin:10px auto;
+}
+.myprofile {
+  width:500px;height:auto; border:2px solid #e4e4e4; margin:10px auto; overflow:hidden;
+}
+.myprofile ul li {
+
+  float:left;
+  width:200px;
+  text-align:left;
+  padding:5px 3px;
+}
+.myarticles{
+  width:600px;height:auto; border:2px solid #e4e4e4; margin:10px auto; overflow:hidden;
+}
+.myarticles ul li {
+
+  float:left;
+  width:160px;
+  text-align:left;
+
+}
+.menu_bar {
+  width:auto;margin:0 auto; height:50px;background:#e4e4e4;float:right; color:#fff;overflow:hidden;
+}
+.menu_bar ul li {
+float:left;
+}
+.menu_bar ul li:hover {
+  
+}
+.menu_bar ul li a {
+    float:left;
+    padding:15px 30px;
+}
+.menu_bar ul li a:hover {
+    background:#888888;
+    color:#fff;
+}
+
+#footer {
+ 
+  background:#696969;
+  height:50px;
+  width:100%;
+  float:left;
+
+}
