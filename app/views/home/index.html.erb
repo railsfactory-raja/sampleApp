@@ -7,13 +7,13 @@
       <li style="width:500px; text-align:center;padding:10px 0;">
       <%= link_to image_tag("profile_button.jpg",:widht=>'100px'), "profile/#{current_user.id}" %>
       </li>
-			<li>Articles</li>
-			<% listofarticle= current_user.profile.article 
-			listofarticle.each do |art|%>
+			<!--<li>Articles</li>
+			<listofarticle= current_user.profile.article 
+			listofarticle.each do |art|>
 			
-			<li><%= link_to "#{art.title}" ,"articles/#{art.id}" %><li>
-			<% end %>
-    </ul>
+			<li><= link_to "#{art.title}" ,"articles/#{art.id}" ><li>
+			< end >
+    </ul>-->
      
   <% else %>
     <ul>
