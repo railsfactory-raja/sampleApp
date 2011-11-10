@@ -25,7 +25,8 @@ class ProfileController < ApplicationController
     
    respond_to do |format|
     if @profile.save
-          format.html { redirect_to (@profile, :notice=>"Your profile created successfuly" )}
+          #format.html { redirect_to (@profile, :notice=>"Your profile created successfuly" )}
+          format.html { redirect_to (@profile)}
 
           format.xml  { head :ok }
         else
@@ -43,7 +44,8 @@ class ProfileController < ApplicationController
     @profile =current_user.profile
      respond_to do |format|
       if @profile.update_attributes(params[:profile])
-        format.html { redirect_to(@profile, :notice=>"Updated successfuly" ) }
+        #format.html { redirect_to(@profile, :notice=>"Updated successfuly" ) }
+        format.html { redirect_to(@profile ) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit"}
