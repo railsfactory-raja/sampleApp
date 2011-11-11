@@ -46,4 +46,17 @@ Googleplus::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+
+config.action_mailer.default_url_options = { :host => 'blooming-leaf-7844.heroku.com' }
+
+  ActionMailer::Base.smtp_settings = {         
+   :enable_starttls_auto=>false, 
+   :address => "mail.railsfactory.com",        
+   :domain => "railsfactory.com",
+   :port        => 25,         
+   :authentication => :login,          
+   :user_name => "mailer@railsfactory.com",          
+   :password => "mail3r" 
+   }
 end
