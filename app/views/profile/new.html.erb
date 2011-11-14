@@ -1,53 +1,57 @@
 <h1>Create your profile</h1>
-<%= form_for(@profile, :url => '/profile') do |f| %>
+<div class="createprofile">
+<%= form_for(@profile, :url => '/profile', :style=>"border:none;") do |f| %>
 <% if @profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
 
       <ul>
       <% @profile.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <li style="width:500px;"><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-  	
-	<div><%= f.label :name %><br />
-  <%= f.text_field :name %>
-	</div>
 	
-	<div><%= f.label :dob %><br />
-  <%= f.text_field :dob %>
-	</div>
+	<ul >
+			<li>Name</li>
+			<li><%= f.text_field :name %></li>
+	</ul>
+	<ul >
+			<li>Dob</li>
+			<li><%= f.text_field :dob %></li>
+	</ul>
 	
-	<div>
- <%= f.radio_button :gender, true %> <%= f.label :gender, "Male" %><br/>
-<%= f.radio_button :gender, false %> <%= f.label :gender, "Female" %>
-</div>
+	<ul >
+			<li>Gender</li>
+			<li>
+				<%= f.radio_button :gender, true %> <%= f.label :gender, "Male" %>
+				<%= f.radio_button :gender, false %> <%= f.label :gender, "Female" %>
+			</li>
+	</ul>
+	<ul >
+			<li>Mobile</li>
+			<li><%= f.text_field :mobile %></li>
+	</ul>
+	<ul >
+			<li>City</li>
+			<li><%= f.select :city, options_for_select(["Chennai", "Delhi", "Bangalore", "Mumbai"]) %></li>
+	</ul>
+	<ul >
+			<li>State</li>
+			<li><%= f.text_field :state %></li>
+	</ul>
+ <ul >
+			<li>Country</li>
+			<li><%= f.text_field :country %></li>
+	</ul>
+	<ul >
+			<li>Zip</li>
+			<li><%= f.text_field :zip %></li>
+	</ul>
+		<ul >
+			<li>	<%= f.submit "Create" %></li>
+	</ul>
 
-	<div><%= f.label :mobile %><br />
-  <%= f.text_field :mobile %>
-	</div>
-	
-<div><%= f.label :city %><br />
-	<%= f.select :city, options_for_select(["Chennai", "Delhi", "Bangalore", "Mumbai"]) %>
-	</div>
-	
-	<div><%= f.label :state %><br />
-  <%= f.text_field :state %>
-	</div>
-	
- <div><%= f.label :country %><br />
-  <%= f.text_field :country %>
-	</div>
-	<div><%= f.label :zip %><br />
-  <%= f.text_field :zip %>
-	</div>
-
-
-
-  <div>
-	<%= f.submit "Create" %></div>
-	</div>
 <% end %>
-
+</div>
