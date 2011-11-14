@@ -48,7 +48,7 @@ Googleplus::Application.configure do
   config.active_support.deprecation = :notify
 
 
-config.action_mailer.default_url_options = { :host => 'gentle-sunrise-1856.heroku.com' }
+config.action_mailer.default_url_options = { :host => 'severe-samurai-3686.heroku.com' }
 
   ActionMailer::Base.smtp_settings = {         
    :enable_starttls_auto=>false, 
