@@ -28,6 +28,11 @@ img {
 
     border:none;
 }
+.error_explanation {
+    width:100%;
+    float:left;
+    background:#e4e4e4;
+}
 /*.notice {
     width:700px;
     height:60px;
@@ -121,6 +126,19 @@ margin-top:10px;
   width:500px;height:auto; border:2px solid #e4e4e4; margin:10px auto; overflow:hidden;
 }
 .myprofile ul li {
+
+  float:left;
+  width:200px;
+  text-align:left;
+  padding:5px 3px;
+}
+.createprofile {
+  width:500px;height:auto; border:2px solid #e4e4e4; margin:10px auto; overflow:hidden;
+}
+#content .createprofile form{
+  border:none;
+}
+.createprofile ul li {
 
   float:left;
   width:200px;
