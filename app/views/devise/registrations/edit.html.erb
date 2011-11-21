@@ -1,25 +1,40 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<h2>Edit User</h2>
+<div class="createprofile">
+<%= devise_error_messages! %>
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
-
-  <div><%= f.submit "Update" %></div>
+  
+<ul >
+			<li>Email</li>
+			<li><%= f.email_field :email %></li>
+</ul>
+<ul >
+			<li>Password</li>
+			<li><%= f.password_field :password %><br/>
+						<i>(leave blank if you don't want to change it)</i>
+			</li>
+</ul>
+<ul >
+			<li>Password Confirmation</li>
+			<li><%= f.password_field :password_confirmation %></li>
+</ul>
+<ul >
+			<li>Current Password</li>
+			<li><%= f.password_field :current_password %><br/>
+					<i>(we need your current password to confirm your changes)</i>
+			</li>
+</ul>
+<ul >
+			<li><%= f.submit "Update" %></li>
+</ul>
+<ul >
+			<li style="width:500px;"><h3>Cancel my account</h3></li>
+</ul>
+<ul >
+			<li style="width:500px;"><p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p></li>
+</ul>
+<ul >
+			<li style="width:500px;"><%= link_to "Back", :back %></li>
+</ul>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
-
-<%= link_to "Back", :back %>
+ 
+</div>

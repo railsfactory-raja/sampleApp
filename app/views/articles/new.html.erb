@@ -1,7 +1,6 @@
 <% if current_user.profile %>
 <h1>Add Articles</h1>
-
-
+<div style="text-align:left;">
 		<%= form_for(@article, :url => '/articles') do |f| %>
 			<% if @article.errors.any? %>
 					<div id="error_explanation">
@@ -21,7 +20,7 @@
 			
 			
 			<div><%= f.label :content %><br />
-			<%= f.text_area :content, :id => "content", :rows=>"5", :cols=>"10" %>
+			<%= f.text_area :content, :id => "content", :rows=>"15", :cols=>"34" %>
 			</div>
 
 			<div>
@@ -31,6 +30,6 @@
 <% else %>
 <h1>Please Create your Profile</h1>
 <% end %>
-
+</div>
 
 

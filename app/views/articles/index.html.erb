@@ -1,25 +1,36 @@
 <% if current_user.profile.blank? %>
 <div class="myarticles">
 <h1>Please Create Your Profile</h1>
-
+<%= link_to 'Click Here', "/profile/new"%>
 </div>
 <% else %>
+<span class="sucess"><%=flash[:sucess]%></span>
+<span class="error"><%=flash[:error]%></span>
 <h1>All Articles</h1>
 <div class="myarticles">
 <%= link_to "Add New", "/articles/new", :style=>"float:left;"%><br/>
-<ul>
-		<li><b>Username</b><li>
-		<li><b>Title</b><li>
-		<li><b>Action</b><li>
-				<% for article in @articles %>
-				<li><%= current_user.profile.name%><li>
-				<li><%= article.title %><li>
+<ul id="articlesView">
+		<li class="title"><b>Username</b><li>
+		<li class="title"><b>Title</b><li>
+		<li class="title"><b>Action</b><li>
 			
+ 				<% @articles.each do |res| %>
+				<li class="value"><% if res.profile_id==current_user.profile.id %>Me
+																		<%  else  %>
+																		<%=Profile.find_by_id(res.profile_id).name.slice(0,17) %>																		
+																		<% end %><li>
+				<li class="value"><%= res.title.slice(0,17) %><li>
+			
+			<li class="value">
+			<%= link_to "Show", "#{res.id}"%> 
+				<% if res.profile_id==current_user.profile.id%>
+				| <%= link_to "Edit", "#{res.id}/edit"%> | <%= link_to "Delete", "#{res.id}",:confirm=>"Are you sure want to delete?", :method=>:delete%>
+				<% end%>
 			<li>
-			<%= link_to "Show", "#{article.id}"%> | <%= link_to "Edit", "#{article.id}/edit"%> | <%= link_to "Delete", "#{article.id}", :method=>:delete%>
-			<li>
-
 				<% end %>
+				<% if @articles.empty?%>
+				 <span class="error">Articles not found</span>
+				<%end%>
 
 </ul>
 

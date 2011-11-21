@@ -1,8 +1,41 @@
+<span class="sucess"><%=flash[:sucess]%></span>
+<span class="error"><%=flash[:error]%></span>
 <h1>show Article</h1>
-<div class="myarticles">
-Title:<%= @article.title%><br/>
-Content:<%= @article.content%><br/>
-<%= link_to "Edit", "#{@article.id}/edit"%> | <%= link_to "Back", "/articles/"%>
+<div class="myarticles" style="text-align:left;">
+<b><%= @article.title%></b><br/>
+<p class="paragraph"><%= @article.content%></p>
+Posted by,<br/>
+<%= current_user.profile.name%>.<br/><br/>
+<div id="commenter" >
+<% if @article.comments.blank?%>
+<%else%>
+
+<h2>Comments</h2>
+<% @article.comments.each do |comment| %>
+  <p>
+    <b><%= comment.name %>:</b>
+    <%= comment.body %>
+  </p>
+
+<% end %>
+<%end%>
+<h2>Add a comment:</h2>
+<%= form_for([@article, @article.comments.build]) do |f| %>
+  <div>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :body %><br />
+    <%= f.text_area :body%>
+  </div>
+  <div >
+    <%= f.submit "Add"%>
+  </div>
+<% end %>
+</div>
+
+<%= link_to "Back", "/articles/"%>
 
 
 </div>

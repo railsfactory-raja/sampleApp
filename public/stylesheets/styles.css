@@ -68,6 +68,13 @@ img {
   clear:both;
   text-align:left;
   margin-left:40px;
+  width:450px;
+}
+.error {
+    color:#FF0000;
+}
+.sucess {
+    color:#006600;
 }
 
 #header {
@@ -105,7 +112,7 @@ margin-top:10px;
 }
 
 
-#content {
+#contentwrapper {
  
   background:#fff;
   height:auto;
@@ -115,12 +122,13 @@ margin-top:10px;
 	text-align:center;
 
 }
-#content form{
+#contentwrapper form{
 		
 		border:2px solid #E4E4E4;
-		width:500px;
+		width:600px;
         padding:10px 0px;
 		margin:10px auto;
+        overflow:hidden;
 }
 .myprofile {
   width:500px;height:auto; border:2px solid #e4e4e4; margin:10px auto; overflow:hidden;
@@ -133,7 +141,10 @@ margin-top:10px;
   padding:5px 3px;
 }
 .createprofile {
-  width:500px;height:auto; border:2px solid #e4e4e4; margin:10px auto; overflow:hidden;
+  width:600px;height:auto;  margin:10px auto; 
+}
+.createprofile  i {
+  font-size:11px; color:#0f0f0f;
 }
 #content .createprofile form{
   border:none;
@@ -145,15 +156,54 @@ margin-top:10px;
   text-align:left;
   padding:5px 3px;
 }
+
+.passwords {
+  width:600px;height:auto;  margin:10px auto; 
+}
+.passwords  i {
+  font-size:11px; color:#0f0f0f;
+}
+#content .passwords form{
+  border:none;
+}
+.passwords ul li {
+
+ clear:both;
+  width:auto;
+  text-align:center;
+  padding:5px 3px;
+}
+
 .myarticles{
   width:600px;height:auto; border:2px solid #e4e4e4; margin:10px auto; overflow:hidden;
 }
 .myarticles ul li {
 
   float:left;
-  width:160px;
+  width:196px;
   text-align:left;
 
+}
+.myarticles p{
+   text-indent:24px;
+   line-height:24px;
+   font-size:12px;
+   padding:5px 5px;
+}
+#articlesView {
+}
+#articlesView  .title{
+   background:#e4e4e4;
+   padding:5px 2px;
+}
+#articlesView  .value{
+   padding:8px 2px;
+}
+#contentwrapper #commenter #new_comment {
+    border:none;
+    height:auto;
+    width:100%;
+    float:left;
 }
 .menu_bar {
   width:auto;margin:0 auto; height:50px;background:#e4e4e4;float:right; color:#fff;overflow:hidden;

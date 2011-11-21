@@ -1,12 +1,12 @@
 <h2>Resend unlock instructions</h2>
-
-<%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
+<div class="passwords">
   <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.submit "Resend unlock instructions" %></div>
+<%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
+<ul>
+      <li>Email</li>
+      <li><%= f.email_field :email %></li>
+       <li><%= f.submit "Reset Passoword" %></li>
+ </ul>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>

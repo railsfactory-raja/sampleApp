@@ -20,8 +20,12 @@
 							<%= link_to  "Articles",  "/articles/" %>  
 							</li>
 							<li >
+							<%= link_to  "Change Password", "/users/edit"%>
+							</li>
+							<li >
 							<%= link_to  "Logout", destroy_user_session_path, :method => :delete %>
 							</li>
+							
 				</ul>
      
 				<% else %>
@@ -33,7 +37,8 @@
 							<%= link_to  "Sign up", new_user_registration_path %>  
 							</li>
 							<li >
-							<%= link_to "Sing in", new_user_session_path %>
+							<%= link_to "Sing in", new_user_session_path %>			
+							
 							</li>
 				</ul>
 	
@@ -48,7 +53,7 @@
 			<p><%= notice %></p>
 		</div>
   
-     <div id="content">
+     <div id="contentwrapper">
     
          <div class="alert"><p ><%= alert %></p></div>
     

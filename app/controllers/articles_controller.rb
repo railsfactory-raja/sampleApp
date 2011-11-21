@@ -1,7 +1,10 @@
 class ArticlesController < ApplicationController
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
   def index
-    @articles = Article.all
+    #id=current_user.profile.id    
+   # @articles = Article.find_all_by_profile_id (id)
+   @articles = Article.find(:all, :order => "created_at DESC")
+   
   end
   
   def show
@@ -20,10 +23,11 @@ class ArticlesController < ApplicationController
     
    respond_to do |format|
     if @article.save
-          #~ format.html { redirect_to (@article, :notice=>"Article added successfuly" )}
+          flash[:sucess]='Articles saved successfuly'
           format.html { redirect_to (@article )}
           format.xml  { head :ok }
         else
+          flash[:error]='try Again!!!'
           format.html { render :action => "new" }
           format.xml  { render :xml => @article.errors, :status => :unprocessable_entity }
         end
@@ -39,11 +43,11 @@ class ArticlesController < ApplicationController
     @article =Article.find(params[:id])
      respond_to do |format|
       if @article.update_attributes(params[:article])
-        #~ format.html { redirect_to(@article, :notice=>"Updated successfuly" ) }
-        format.html { redirect_to(@article) }
-        
+        flash[:sucess]='Articles updated successfuly'
+        format.html { redirect_to(@article) }        
         format.xml  { head :ok }
       else
+        flash[:error]='try Again!!!'
         format.html { render :action => "edit"}
         format.xml  { render :xml => @article.errors, :status => :unprocessable_entity }
       end
@@ -55,7 +59,8 @@ class ArticlesController < ApplicationController
     @article.destroy
     respond_to do |format|
         #~ format.html { redirect_to(@article, :notice=>"Deleted successfuly" ) }
-        format.html { redirect_to(@article) }
+        flash[:sucess]='Articles deleted successfuly'
+        format.html { redirect_to("/articles/") }
     end
   end
 

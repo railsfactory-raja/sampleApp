@@ -1,8 +1,12 @@
 Googleplus::Application.routes.draw do
 
 
+  #get "error/routingerror"
+
   #get "articles/index"
-  resources :articles
+  resources :articles do
+	resources :comments
+  end
   resources :home
   resources :profile
 
@@ -16,6 +20,8 @@ Googleplus::Application.routes.draw do
     get "logout",   :to => "devise/sessions#destroy"
 	
   end
+
+  match "*path" => 'error#routingerror'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

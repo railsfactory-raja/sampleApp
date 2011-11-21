@@ -25,11 +25,11 @@ class ProfileController < ApplicationController
     
    respond_to do |format|
     if @profile.save
-          #format.html { redirect_to (@profile, :notice=>"Your profile created successfuly" )}
+          flash[:sucess]='Profile saved successfully'
           format.html { redirect_to (@profile)}
-
           format.xml  { head :ok }
         else
+          flash[:error]='Try Again!!!'
           format.html { render :action => "new" }
           format.xml  { render :xml => @profile.errors, :status => :unprocessable_entity }
         end
@@ -44,10 +44,11 @@ class ProfileController < ApplicationController
     @profile =current_user.profile
      respond_to do |format|
       if @profile.update_attributes(params[:profile])
-        #format.html { redirect_to(@profile, :notice=>"Updated successfuly" ) }
+        flash[:sucess]='Profile updated successfully'
         format.html { redirect_to(@profile ) }
         format.xml  { head :ok }
       else
+        flash[:error]='Try Again!!!'
         format.html { render :action => "edit"}
         format.xml  { render :xml => @profile.errors, :status => :unprocessable_entity }
       end
